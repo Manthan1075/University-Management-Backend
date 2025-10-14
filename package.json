@@ -1,0 +1,24 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": " University Management Project Using Mern",
+  "homepage": "https://github.com/Manthan1075/University-Management-Backend#readme",
+  "bugs": {
+    "url": "https://github.com/Manthan1075/University-Management-Backend/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Manthan1075/University-Management-Backend.git"
+  },
+  "license": "ISC",
+  "author": "Manthan Rathod",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.19.0"
+  }
+}
