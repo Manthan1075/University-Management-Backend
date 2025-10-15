@@ -34,7 +34,7 @@ const notificationSchema = new mongoose.Schema(
         "exam",
         "event",
         "fee",
-        "assignment",     
+        "assignment",
         "result",
         "custom",
         "info",
@@ -50,5 +50,7 @@ const notificationSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+
+notificationSchema.index({ "recipients.user": 1 });
 
 export const Notification = mongoose.model("Notification", notificationSchema);

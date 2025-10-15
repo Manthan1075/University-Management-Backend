@@ -26,7 +26,10 @@ const resultSchema = new mongoose.Schema(
       required: true,
     },
     examDate: { type: Date },
-
+    year: {
+      type: Number,
+      required: true,
+    },
     result: [
       {
         subject: {

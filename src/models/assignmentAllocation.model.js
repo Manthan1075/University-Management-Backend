@@ -13,9 +13,9 @@ const assignmentAllocationSchema = new mongoose.Schema(
       trim: true,
     },
     subject: {
-      type: String,
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Subject",
       required: true,
-      trim: true,
     },
     startDate: {
       type: Date,
@@ -42,7 +42,7 @@ const assignmentAllocationSchema = new mongoose.Schema(
       ref: "Course",
       required: true,
     },
-    section: [
+    sections: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Section",

@@ -5,8 +5,12 @@ const subjectSchema = new mongoose.Schema(
     name: { type: String, required: true, unique: true },
     description: { type: String, required: true },
     syllabus: { type: String, required: true },
-    files: [{ type: String }],
     subjectCode: { type: String, required: true, unique: true },
+    type: {
+      type: String,
+      enum: ["theory", "practical", "both"],
+      default: "theory",
+    },
     studyMaterials: [
       {
         title: { type: String, trim: true },
@@ -18,6 +22,14 @@ const subjectSchema = new mongoose.Schema(
         },
       },
     ],
+
+    teachers: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
+
     totalMarks: {
       type: Number,
       required: true,

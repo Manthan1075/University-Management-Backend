@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema(
       match: [/^\S+@\S+\.\S+$/, "Invalid email format"],
     },
     contactNumber: {
-      type: String,
+      type: Number,
       required: true,
       trim: true,
       match: [/^[0-9]{10}$/, "Invalid contact number"],
@@ -96,5 +96,7 @@ const userSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+
+userSchema.index({ role: 1, course: 1, gender: 1 });
 
 export const User = mongoose.model("User", userSchema);

@@ -52,13 +52,17 @@ const courseSchema = new mongoose.Schema(
       type: String,
       trim: true,
     },
-    TotalSeats: {
+    totalSeats: {
       type: Number,
       required: true,
     },
     availableSeats: {
       type: Number,
       required: true,
+    },
+    isAdmissionOpen: {
+      type: Boolean,
+      default: false,
     },
     inquiryInfo: {
       contact: { type: String, trim: true },
@@ -74,5 +78,7 @@ const courseSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+
+courseSchema.index({ type: 1 });
 
 export const Course = mongoose.model("Course", courseSchema);

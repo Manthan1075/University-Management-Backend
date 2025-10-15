@@ -23,7 +23,7 @@ const assignmentSubmissionSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      enum: ["submitted", "approved"],
+      enum: ["submitted", "approved", "rejected", "resubmitted" ],
     },
   },
   { timestamps: true }

@@ -6,12 +6,12 @@ const sectionSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    mentorID: {
+    mentor: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
     },
-    courseID: {
+    course: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Course",
       required: true,
@@ -36,6 +36,11 @@ const sectionSchema = new mongoose.Schema(
     ],
   },
   { timestamps: true }
+);
+
+sectionSchema.index(
+  { courseID: 1, name: 1, year: 1, semester: 1 },
+  { unique: true }
 );
 
 export const Section = mongoose.model("Section", sectionSchema);

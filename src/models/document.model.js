@@ -16,6 +16,11 @@ const documentSchema = new mongoose.Schema(
       enum: ["pending", "verified", "rejected"],
       default: "pending",
     },
+    type : {
+      type: String,
+      // enum : [],
+      required: true,
+    },
     rejectionReason: { type: String },
   },
   { timestamps: true }

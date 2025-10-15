@@ -2,11 +2,17 @@ import mongoose from "mongoose";
 
 const eventSchema = new mongoose.Schema(
   {
-    title: { type: String, required: true },
+    title: {
+      type: String,
+      required: true,
+    },
     description: { type: String, required: true },
     staringDate: { type: Date, required: true },
     endingDate: { type: Date, required: true },
     location: { type: String, required: true },
+    banner: {
+      type: String,
+    },
     targetAll: {
       type: Boolean,
       default: false,

@@ -16,17 +16,28 @@ const timeTableSchema = new mongoose.Schema(
       type: Date,
     },
     startTime: {
-      type: String,
+      type: Date,
       required: true,
     },
     endTime: {
-      type: String,
+      type: Date,
       required: true,
     },
     subject: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Subject",
       required: true,
+    },
+    dayOfWeek: {
+      type: String,
+      enum: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ],
     },
     teacher: {
       type: mongoose.Schema.Types.ObjectId,
@@ -38,10 +49,12 @@ const timeTableSchema = new mongoose.Schema(
     },
     examType: {
       type: String,
-      enum: ["midterm", "final", "practical", "test","other"],
+      enum: ["midterm", "final", "practical", "test", "other", "None"],
     },
   },
   { timestamps: true }
 );
+
+timeTableSchema.index({ course: 1, section: 1, type: 1 });
 
 export const TimeTable = mongoose.model("TimeTable", timeTableSchema);
